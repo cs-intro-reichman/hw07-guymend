@@ -52,9 +52,10 @@ public class SpellChecker {
 
 	public static String spellChecker(String word, int threshold, String[] dictionary) {
 		String newWord = word;
+		int limit = threshold + 1;
 		for (int i = 0; i < dictionary.length; i++) {
-			if(levenshtein (word, dictionary[i]) <= threshold) {
-				threshold = levenshtein (word, dictionary[i]);
+			if(levenshtein (word, dictionary[i]) < limit) {
+				limit = levenshtein (word, dictionary[i]);
 				newWord = dictionary[i];
 			}
 		}	
