@@ -53,9 +53,9 @@ public class SpellChecker {
 	public static String spellChecker(String word, int threshold, String[] dictionary) {
 		String newWord = word;
 		for (int i = 0; i < dictionary.length; i++) {
-			if(levenshtein (word, dictionary[i]) < threshold) {
+			if(levenshtein (word, dictionary[i]) <= threshold) {
+				threshold = levenshtein (word, dictionary[i]);
 				newWord = dictionary[i];
-				break;
 			}
 		}	
 		return newWord;
