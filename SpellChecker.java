@@ -54,7 +54,7 @@ public class SpellChecker {
 		String newWord = word;
 		int limit = threshold + 1;
 		for (int i = 0; i < dictionary.length; i++) {
-			if(levenshtein (word, dictionary[i]) < limit) {
+			if (levenshtein (word, dictionary[i]) < limit) {
 				limit = levenshtein (word, dictionary[i]);
 				newWord = dictionary[i];
 			}
