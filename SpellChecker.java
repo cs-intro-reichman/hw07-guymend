@@ -19,7 +19,7 @@ public class SpellChecker {
 			return word2.length();
 		}else if (word2.length() == 0) {
 			return word1.length();
-		}else if (word1.substring(0,1).equals(word2.substring(0,1))) {
+		}else if (word1.substring(0,1).equalsIgnoreCase(word2.substring(0,1))) {
 			return levenshtein(tail(word1), tail(word2));
 		}else{
 			
