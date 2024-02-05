@@ -23,17 +23,9 @@ public class SpellChecker {
 			return levenshtein(tail(word1), tail(word2));
 		}else{
 			
-			int minimum = 1000;
-			int[] options = new int[3];
-			options[0] = levenshtein(tail(word1), word2);
-			options[1] = levenshtein(word1, tail(word2));
-			options[2] = levenshtein(tail(word1), tail(word2));
-			for (int i = 0; i < 3; i++) {
-				if (options[i] < minimum) {
-					minimum = options[i];
-				}
-			}
-
+			int minimum = Math.min(levenshtein(tail(word1), word2), levenshtein(word1, tail(word2)));
+			minimum = Math.min(minimum, levenshtein(tail(word1), tail(word2)));
+	
 			return 1+minimum;
 		}
 	}
